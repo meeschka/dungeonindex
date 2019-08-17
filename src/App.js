@@ -17,18 +17,17 @@ class App extends Component {
   }
   onSearchChange = (event) => {
     this.setState({searchfield: event.target.value});
-    const filteredChars = this.state.chars.filter(chars =>{
-      return chars.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
-    })
-    console.log(filteredChars);
   }
 
   render(){
+    const filteredChars = this.state.chars.filter(chars =>{
+      return chars.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    })
     return(
       <div className="tc">
         <Banner />
         <SearchBox searchChange={this.onSearchChange} />
-        <CardList chars={this.state.chars}/>
+        <CardList chars={filteredChars}/>
       </div>
     )
   }
