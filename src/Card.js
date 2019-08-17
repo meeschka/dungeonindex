@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 const Card = ({name, race, charClass, description, id}) => {
   return(
@@ -6,8 +7,8 @@ const Card = ({name, race, charClass, description, id}) => {
       <img alt="photo of character" src={`https://robohash.org/${id}?200x200`} />
       <div>
         <h2>{name}</h2>
-        <p>{race+" "+charClass}</p>
-        <p>{description}</p>
+        <p className="Card-p">{race+" "+charClass}</p>
+        <p className="Card-p">{description.length>32?description.substring(0,32).concat('...'):description}</p>
       </div>
     </div>
   );
