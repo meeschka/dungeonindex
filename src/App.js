@@ -15,6 +15,15 @@ class App extends Component {
       searchfield: ''
     }
   }
+  componentDidMount() {
+    fetch('http://localhost:3001/api/npcs')
+    .then(response => response.json())
+    .then(chars => {
+      this.setState({chars: chars});
+      console.log(chars);
+    })
+  }
+
   onSearchChange = (event) => {
     this.setState({searchfield: event.target.value});
   }

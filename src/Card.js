@@ -8,7 +8,9 @@ const Card = ({name, race, charClass, description, id}) => {
       <div>
         <h2>{name}</h2>
         <p className="Card-p">{race+" "+charClass}</p>
+        {description &&
         <p className="Card-p">{description.length>32?description.substring(0,32).concat('...'):description}</p>
+        }
       </div>
     </div>
   );
