@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import CardList from './CardList';
-import {chars} from './chars';
-import SearchBox from './SearchBox';
-import Banner from './Banner';
-import Scroll from './Scroll';
-import logo from './logo.svg';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import Banner from '../Banner';
+import Scroll from '../components/Scroll';
+import ErrorBoundry from '../components/ErrorBoundry';
+import logo from '../logo.svg';
 import './App.css';
 
 
@@ -27,10 +27,11 @@ class App extends Component {
   }
 
   render(){
-    const filteredChars = this.state.chars.filter(chars =>{
-      return chars.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+    const {chars, searchfield} = this.state;
+    const filteredChars = chars.filter(char =>{
+      return char.name.toLowerCase().includes(searchfield.toLowerCase());
     })
-    if (this.state.chars.length === 0) {
+    if (!chars.length) {
         return <h3>Loading!</h3>
     } else {
         return(
@@ -38,7 +39,9 @@ class App extends Component {
             <Banner />
             <SearchBox searchChange={this.onSearchChange} />
             <Scroll>
-              <CardList chars={filteredChars}/>
+              <ErrorBoundry>
+                <CardList chars={filteredChars}/>
+              </ErrorBoundry>
             </Scroll>
           </div>
         )
