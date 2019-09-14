@@ -3,7 +3,7 @@ import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Banner from '../Banner';
 import Scroll from '../components/Scroll';
-import NewCharForm from '../components/NewCharForm';
+import NewCharControl from '../components/NewCharControl';
 import ErrorBoundry from '../components/ErrorBoundry';
 import logo from '../logo.svg';
 import './App.css';
@@ -84,7 +84,7 @@ class App extends Component {
           <div className="tc">
             <Banner />
             <SearchBox searchChange={this.onSearchChange} />
-            <NewCharForm addNpc={this.addNpc}/>
+            <NewCharControl addNpc={this.addNpc}/>
             <Scroll>
               <ErrorBoundry>
                 <CardList chars={filteredChars}/>
