@@ -8,9 +8,9 @@ const CardList = ({chars}) => {
         chars.map((char, i) => {
           return (
             <Card
-              key={i}
+              key={chars[i]._id}
               name={chars[i].name}
-              charClass={chars[i].class}
+              charClass={chars[i].charClass}
               race = {chars[i].race}
               description={chars[i].details}
               id={chars[i].id}

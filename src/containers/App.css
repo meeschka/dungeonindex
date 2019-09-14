@@ -34,3 +34,11 @@
     transform: rotate(360deg);
   }
 }
+
+.formInput{
+  margin: 5px 10px;
+  width: 300px;
+  max-width: 100%;
+  padding: 5px;
+  text-align: center;
+}
