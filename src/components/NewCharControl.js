@@ -30,6 +30,7 @@ class NewCharControl extends Component {
     handleCancelNewButtonClick(){
         this.setState({newChar: false});
     }
+    
     render() {
         const newChar = this.state.newChar;
         let button;
@@ -37,13 +38,13 @@ class NewCharControl extends Component {
         if (newChar) {
             button = <CancelNewButton onClick={this.handleCancelNewButtonClick} />
         } else {
-            button = <NewCharButton onClick={this.handleCancelNewButtonClick} />
+            button = <NewCharButton onClick={this.handleNewCharButtonClick} />
         }
 
         return (
             <div>
                 {button}
-                {newChar && <NewCharForm />}
+                {newChar && <NewCharForm addNpc = {this.props.addNpc} />}
             </div>
         )
     }
