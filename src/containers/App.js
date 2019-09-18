@@ -5,6 +5,7 @@ import Banner from '../Banner';
 import Scroll from '../components/Scroll';
 import NewCharControl from '../components/NewCharControl';
 import ErrorBoundry from '../components/ErrorBoundry';
+import CharDetails from '../components/CharDetails';
 import logo from '../logo.svg';
 import './App.css';
 
@@ -15,9 +16,11 @@ class App extends Component {
     super();
     this.state = {
       chars: [],
-      searchfield: ''
+      searchfield: '',
+      currentChar: ''
     }
     this.addNpc = this.addNpc.bind(this);
+    this.showNpc = this.showNpc.bind(this);
   }
 
   componentDidMount() {
@@ -72,6 +75,10 @@ class App extends Component {
     .then(chars => this.setState({chars: chars}));
   }
 
+  showNpc(char){
+    this.setState({currentChar: char});
+  }
+
   render(){
     const {chars, searchfield} = this.state;
     const filteredChars = chars.filter(char =>{
@@ -85,9 +92,10 @@ class App extends Component {
             <Banner />
             <SearchBox searchChange={this.onSearchChange} />
             <NewCharControl addNpc={this.addNpc}/>
+            <CharDetails currentChar={this.state.currentChar}/>
             <Scroll>
               <ErrorBoundry>
-                <CardList chars={filteredChars}/>
+                <CardList chars={filteredChars} showNpc={this.showNpc}/>
               </ErrorBoundry>
             </Scroll>
           </div>

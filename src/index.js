@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import CardList from './components/CardList';
 import App from './containers/App';
-import Card from './components/Card';
 import * as serviceWorker from './serviceWorker';
 import 'tachyons';
-import {chars} from './chars';
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 
