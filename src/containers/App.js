@@ -92,7 +92,7 @@ class App extends Component {
             <Banner />
             <SearchBox searchChange={this.onSearchChange} />
             <NewCharControl addNpc={this.addNpc}/>
-            <CharDetails currentChar={this.state.currentChar}/>
+            <CharDetails currentChar={this.state.currentChar} showNpc={this.showNpc}/>
             <Scroll>
               <ErrorBoundry>
                 <CardList chars={filteredChars} showNpc={this.showNpc}/>

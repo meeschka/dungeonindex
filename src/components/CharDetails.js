@@ -8,7 +8,11 @@ class CharDetails extends Component {
         return(
             <div>
             {this.props.currentChar &&
-                <h1>Current char is {this.props.currentChar.name}</h1>
+                <div id="currentChar" onClick={() => { this.props.showNpc(null) }}>
+                    <h1>Current char is {this.props.currentChar.name}</h1>
+                    <button id="editChar">Edit Details</button>
+                    <button id="deleteChar">Delete Character</button>
+                </div>
             }
             </div>
         );
